@@ -32,7 +32,6 @@
         <link rel="stylesheet" href="assets/css/responsive.css" />
 
         <script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -243,11 +242,11 @@
         
 		<section id="maps" class="maps ">
 			
-			<div class="maps_overlay">
-				<div class="ourmap">
+			<div class="maps_overlay" id="map">
+				<div class="ourmap" >
 					<div class="container">
 						<div class="row">
-							<div class="main_maps" id="map">
+							<div class="main_maps">
 							
 							</div>
 						</div>
@@ -270,11 +269,6 @@
 
 </figure>
        
-
-
-
-
-
         <!-- STRAT SCROLL TO TOP -->
 
         <div class="scrollup">
@@ -287,18 +281,21 @@
 
         <script src="assets/js/jquery.easypiechart.min.js"></script>
         <script src="assets/js/jquery.mixitup.min.js"></script>
-		  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtbZfZRkbqMRBy5nnZJj4DF9yfdhBGNEc&callback=initMap"
-  type="text/javascript"></script>
-        <script src="assets/js/gmaps.js"></script>
             <script>
-            var map = new GMaps({
-              el: '.ourmap',
-              scrollwheel: true,
-              lat: 41.380369,
-              lng: -8.760929
-            });
-            </script>
-            
+      function initMap() {
+        var uluru = {lat: 41.3803685, lng: -8.7609294};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 14,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+    </script>
+            <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtbZfZRkbqMRBy5nnZJj4DF9yfdhBGNEc&callback=initMap"
+  type="text/javascript"></script>
         <script src="assets/js/plugins.js"></script>
         <script src="assets/js/main.js"></script>
         
